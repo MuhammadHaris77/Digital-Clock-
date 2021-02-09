@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #main-container{
+        background-color: black;
+        padding: 50px;
+        margin-top: 10px;
+        margin-left: 300px;
+        padding-top: 100px;
+        border-radius: 50px;
+        width: 50%;
+        height: 50%;
+        border-style: 50px dashed skyblue;
+    }
+
+
+   #clock{
+       color: skyblue;
+       background-color: black;
+       margin-bottom: 50px;
+       font-size: 100px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       text-align: center;
+       font-family: digital-7;
+       font-weight: 500;
+   }
+
+ 
+   @font-face {
+  font-family: digital-7;
+  src: url(digital-7\ \(mono\).ttf);
+}
+
+
+.btn{
+    color:gray;
+    background-color: black;
+       border-radius: 5px ;
+       font-size: 40px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       width: 250px;
+       text-align: center;
+       font-family: digital-7;
+       margin-top: 0px;
+       padding: 5px;
+       border-style: 200px solid blue;
+
+    
+}
+
+h1{
+    color: grey;
+    border-style:2px  solid white;
+    background-color: black;
+    font-size: 60px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       font-weight: bold;
+       text-align: center;
+       
+       width: 100%;
+       text-align: center;
+       margin-bottom: 50px;
+}
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <div>
+            <h1> DIGITAL CLOCK <br > <span style="font-family:digital-7 ;"> 08-02-2021</span>   <br>
+               <span style="font-family:digital-7 ;">SUNDAY</span>                   </h1>
+        
+         
+        </div>
+        <div id="clock" >
+            
+        </div>
+        
+    
+    
+        
+            <center> 
+                <button class="btn" onclick="digitalclock()">start</button>
+                <button class="btn" onclick="stop()">stop</button>
+            </center>
+           </div>
+    
+    
+    
+    </div>
+  
+    <script>
+
+var time = new Date();
+        var hours =  time.getHours();
+        var minutes = time.getMinutes();
+        var second =  time.getSeconds();
+        var en    = 'PM'; 
+        if (hours > 12) {
+            en == 'AM'
+        }
+
+        if (hours > 12 ) {
+            hours = hours - 12;
+        }
+
+        if (hours == 0 ) {
+            hours == 12;
+        }
+
+        if (hours < 10) {
+            hours = '0' + hours
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        if (second < 10) {
+            second = '0' + second
+        }
+       document.getElementById('clock').innerHTML= hours + ":" + minutes + ":" + second + " " +  en 
+       var interval
+     function digitalclock() {
+        interval =setInterval ( function start(){
+        
+        var time = new Date();
+        var hours =  time.getHours();
+        var minutes = time.getMinutes();
+        var second =  time.getSeconds();
+        var en    = 'PM'; 
+        if (hours > 12) {
+            en == 'AM'
+        }
+
+        if (hours > 12 ) {
+            hours = hours - 12;
+        }
+
+        if (hours == 0 ) {
+            hours == 12;
+        }
+
+        if (hours < 10) {
+            hours = '0' + hours
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        if (second < 10) {
+            second = '0' + second
+        }
+       document.getElementById('clock').innerHTML= hours + ":" + minutes + ":" + second + " " +  en }, 1000 )
+
+ 
+     }
+        
+       function stop(){
+           clearInterval(interval)
+       }
+       </script>
+     
+
+     
+     
+     
+     
+     
+</body>
+</html>
